@@ -77,7 +77,18 @@ class App extends Component {
           title={this.state.formVal.title}
           phoneNo={this.state.formVal.phoneNo}
           email={this.state.formVal.email}
-          address={this.state.formVal.address}/> : null}
+          address={this.state.formVal.address}
+          university={this.state.formVal.university}
+          uniCity={this.state.formVal.uniCity}
+          degree={this.state.formVal.degree}
+          sub={this.state.formVal.sub}
+          uniFrom={this.state.formVal.uniFrom}
+          uniTo={this.state.formVal.uniTo}
+          position={this.state.formVal.position}
+          company={this.state.formVal.company}
+          expCity={this.state.formVal.expCity}
+          expFrom={this.state.formVal.expFrom}
+          expTo={this.state.formVal.expTo}/> : null}
         </div>
       </div>
     );

@@ -31,16 +31,16 @@ class Maker extends Component {
             <form className='educationalInp'>
                 <label htmlFor='university'></label>
                 <input type="text" name="university" value={formVal} onChange={handleChange} placeholder="University"></input>
-                <label htmlFor='city'></label>
-                <input type="text" name="city" value={formVal} onChange={handleChange} placeholder="City"></input>
+                <label htmlFor='uniCity'></label>
+                <input type="text" name="uniCity" value={formVal} onChange={handleChange} placeholder="City, Province"></input>
                 <label htmlFor='degree'></label>
                 <input type="text" name="degree" value={formVal} onChange={handleChange} placeholder="Degree"></input>
                 <label htmlFor='sub'></label>
                 <input type="text" name="sub" value={formVal} onChange={handleChange} placeholder="Subject"></input>
-                <label htmlFor='from'></label>
-                <input type="text" name="from" value={formVal} onChange={handleChange} placeholder="From"></input> 
-                <label htmlFor='to'></label>
-                <input type="text" name="to" value={formVal} onChange={handleChange} placeholder="To"></input> 
+                <label htmlFor='uniFrom'></label>
+                <input type="text" name="uniFrom" value={formVal} onChange={handleChange} placeholder="From"></input> 
+                <label htmlFor='uniTo'></label>
+                <input type="text" name="uniTo" value={formVal} onChange={handleChange} placeholder="To"></input> 
             </form>
 
             <p className="headerText">Experience</p>
@@ -49,12 +49,12 @@ class Maker extends Component {
                 <input type="text" name="position" value={formVal} onChange={handleChange} placeholder="Position"></input>
                 <label htmlFor='company'></label>
                 <input type="text" name="company" value={formVal} onChange={handleChange} placeholder="Company"></input>
-                <label htmlFor='city'></label>
-                <input type="text" name="city" value={formVal} onChange={handleChange} placeholder="City"></input>
-                <label htmlFor='from'></label>
-                <input type="text" name="from" value={formVal} onChange={handleChange} placeholder="From"></input>
-                <label htmlFor='to'></label>
-                <input type="text" name="to" value={formVal} onChange={handleChange} placeholder="To"></input> 
+                <label htmlFor='expCity'></label>
+                <input type="text" name="expCity" value={formVal} onChange={handleChange} placeholder="City"></input>
+                <label htmlFor='expFrom'></label>
+                <input type="text" name="expFrom" value={formVal} onChange={handleChange} placeholder="From"></input>
+                <label htmlFor='expTo'></label>
+                <input type="text" name="expTo" value={formVal} onChange={handleChange} placeholder="To"></input> 
             </form>
         </div>
         

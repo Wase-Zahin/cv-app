@@ -6,16 +6,18 @@ class Template extends Component {
     }
 
     render() {
-        const {firstName, lastName, title, phoneNo, email, address} = this.props;
+        const {firstName, lastName, title, phoneNo, email, address,
+               university, uniCity, degree, sub, uniFrom, uniTo,
+               position, company, expCity, expFrom, expTo} = this.props;
         return (
             <div className='template'>
-                <p className="name">{firstName || 'Your name'}</p>
+                <p className="name">{firstName || 'Your'} {lastName || 'Name'}</p>
                 <p className="title">{title || 'Job Title'}</p>
-                <p className="address">{'123 Your street, Your city ABCD + Your Phone Number + Your email Address'}</p>
+                <p className="address">{address || '123 Your street, Your city ABCD'}, {phoneNo || ', Your Phone Number'}, {email || ', Your email Address'}</p>
                 <p className="headerEdu">Education</p><div className="hr"></div>
                 <div className="university">
-                    <p className="universityName">Your university name and degree</p>
-                    <p className="duration">From - To</p>
+                    <p className="universityName">{university || 'Your university name'} - {degree || 'degree'}</p>
+                    <p className="duration">{uniFrom || 'From'} - {uniTo || 'To'}</p>
                 </div>
                 <div className="courses">
                     <li>Courses: Name All Of Your Courses</li>
@@ -30,12 +32,12 @@ class Template extends Component {
                 <div className="professionalExp">
                     <p className="headerProfExp">Professional Experience</p><div className="hr"></div>
                     <div className="jobTitleCity">
-                        <p className="jobTitle">The title of your job in the company</p>
-                        <p className="jobLocation">City, Province</p>
+                        <p className="jobTitle">{position || 'The title of your job in the company'}</p>
+                        <p className="jobLocation">{expCity || 'City, Province'}</p>
                     </div>
                     <div className="jobNameDuration">
-                        <p className="companyName">Company Name</p>
-                        <p>From - To</p>
+                        <p className="companyName">{company || 'Company Name'}</p>
+                        <p>{expFrom || 'From'} - {expTo || 'To'}</p>
                     </div>
                     <div className="companyWorks">
                         <li>Relevant works</li>
