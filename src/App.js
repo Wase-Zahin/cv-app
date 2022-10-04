@@ -2,6 +2,9 @@ import './App.css';
 import React, {Component} from 'react';
 import Template from './components/template';
 import Maker from './components/maker';
+import UniMaker from './components/uni';
+import UniTemplate from './components/uniTemplate';
+import uniqid from "uniqid";
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +14,10 @@ class App extends Component {
       formVal: {},
       showMaker: true,
       showTemplate: false,
+      uniMakerArr: [], 
+      uniTemplateArr: [],
+      uniCnt: 0,
+      addExp: 0,
       //image: null,
     };
 
@@ -18,6 +25,7 @@ class App extends Component {
     this.onSubmitForm = this.onSubmitForm.bind(this);
     this.onClickMaker = this.onClickMaker.bind(this);
     this.onClickTemplate = this.onClickTemplate.bind(this);
+    this.addUniFn = this.addUniFn.bind(this);
     //this.onImageChange = this.onImageChange.bind(this);
   }
 // onsubmitForm template should read
@@ -34,6 +42,20 @@ class App extends Component {
     e.preventDefault();
     console.log(this.state.formVal);
   }
+
+  addUniFn(e) {
+    const {uniMakerArr, uniCnt, uniTemplateArr} = this.state;
+    uniMakerArr.push(<UniMaker key={uniqid()} number={uniCnt} />);
+    uniTemplateArr.push(<UniTemplate key={uniqid()} number={uniCnt} />)
+
+    this.setState({
+      uniCnt: uniCnt + 1,
+      uniMakerArr, uniTemplateArr
+    })
+    console.log(this.state.uniCnt, this.state.uniTemplateArr);
+
+  }
+
 
   onClickMaker(e) {
     this.setState({
@@ -59,36 +81,34 @@ class App extends Component {
   };*/
 
   render() {
+    const {firstName, lastName, title, phoneNo, email,
+           address, university, uniCity, degree, sub,
+           uniFrom, uniTo, position, company, expCity,
+           expFrom, expTo} = this.state.formVal; 
+    const {showMaker, showTemplate, uniMakerArr, uniTemplateArr} = this.state;
     return (
       <div>
         <header className="header">
           Curriculum Vitae!
         </header>
         <nav className="nav">
-          <a className='ddd' onClick={this.onClickMaker}>Maker</a>
+          <a onClick={this.onClickMaker}>Maker</a>
           <div className='vl'></div>
           <a onClick={this.onClickTemplate}>Preview</a>
         </nav>
         <div>
-          {this.state.showMaker ? <Maker onSubmitForm={this.onSubmitForm} handleChange={this.handleChange}/> : null}
-          {this.state.showTemplate ? <Template onSubmitForm={this.onSubmitForm}
-          firstName={this.state.formVal.firstName}
-          lastName={this.state.formVal.lastName}
-          title={this.state.formVal.title}
-          phoneNo={this.state.formVal.phoneNo}
-          email={this.state.formVal.email}
-          address={this.state.formVal.address}
-          university={this.state.formVal.university}
-          uniCity={this.state.formVal.uniCity}
-          degree={this.state.formVal.degree}
-          sub={this.state.formVal.sub}
-          uniFrom={this.state.formVal.uniFrom}
-          uniTo={this.state.formVal.uniTo}
-          position={this.state.formVal.position}
-          company={this.state.formVal.company}
-          expCity={this.state.formVal.expCity}
-          expFrom={this.state.formVal.expFrom}
-          expTo={this.state.formVal.expTo}/> : null}
+          {showMaker ? <Maker onSubmitForm={this.onSubmitForm} 
+          handleChange={this.handleChange} add={this.addUniFn} 
+          uniMakerState={uniMakerArr} firstName={firstName}/> : null}
+
+          {showTemplate ? <Template onSubmitForm={this.onSubmitForm}
+          uniTemplateState={uniTemplateArr}
+          //state value for object "formVal"
+          firstName={firstName} lastName={lastName} title={title}
+          phoneNo={phoneNo} email={email} address={address}
+          university={university} uniCity={uniCity} degree={degree}
+          sub={sub} uniFrom={uniFrom} uniTo={uniTo} position={position}
+          company={company} expCity={expCity} expFrom={expFrom} expTo={expTo}/> : null}
         </div>
       </div>
     );

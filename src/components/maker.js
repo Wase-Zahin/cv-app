@@ -1,12 +1,14 @@
 import React, {Component} from "react";
+import UniMaker from "./uni";
 
 class Maker extends Component {
     constructor(props) {
       super(props);
     }
 
+    
     render() {
-    const {onSubmitForm, handleChange, formVal} = this.props;
+    const {onSubmitForm, handleChange, formVal, add, uniMakerState} = this.props;
 
     return(
         <div className='maker'>
@@ -24,7 +26,7 @@ class Maker extends Component {
                 <input type="text" name="email" value={formVal} onChange={handleChange}  placeholder="Email Address"></input> 
                 <label htmlFor='address'></label>
                 <input type="text" name="address" value={formVal} onChange={handleChange} placeholder="Address"></input>
-                <button type="submit">Change</button>
+                <button className="changeBtn" type="submit">Change</button>
             </form>
 
             <p className="headerText">Education</p>
@@ -40,7 +42,13 @@ class Maker extends Component {
                 <label htmlFor='uniFrom'></label>
                 <input type="text" name="uniFrom" value={formVal} onChange={handleChange} placeholder="From"></input> 
                 <label htmlFor='uniTo'></label>
-                <input type="text" name="uniTo" value={formVal} onChange={handleChange} placeholder="To"></input> 
+                <input type="text" name="uniTo" value={formVal} onChange={handleChange} placeholder="To"></input>
+                <button type="button" className="delBtn" >Delete</button> 
+                {uniMakerState.map((component) => {
+                    return <UniMaker formVal={formVal} handleChange={handleChange} key={component.key} p2={component.number}/>
+                })}
+                {'this is ' + this.props.firstName}
+                <button type="button" className="addBtn" onClick={add}>Add</button>
             </form>
 
             <p className="headerText">Experience</p>
@@ -55,6 +63,24 @@ class Maker extends Component {
                 <input type="text" name="expFrom" value={formVal} onChange={handleChange} placeholder="From"></input>
                 <label htmlFor='expTo'></label>
                 <input type="text" name="expTo" value={formVal} onChange={handleChange} placeholder="To"></input> 
+            </form>
+
+            <p className="headerText">Skills</p>
+            <form className='skillsInp'>
+                <label htmlFor='skill'></label>
+                <input type="text" name="skill" value={formVal} onChange={handleChange} placeholder="Skill"></input>
+            </form>
+
+            <p className="headerText">Projects</p>
+            <form className='projects'>
+                <label htmlFor='projects'></label>
+                <input type="text" name="projects" value={formVal} onChange={handleChange} placeholder="Project"></input>
+            </form>
+
+            <p className="headerText">Interests</p>
+            <form className='interest'>
+                <label htmlFor='interest'></label>
+                <input type="text" name="interest" value={formVal} onChange={handleChange} placeholder="Interest"></input>
             </form>
         </div>
         

@@ -20,7 +20,10 @@ p {
 
 .personalInp,
 .professionalInp,
-.educationalInp {
+.educationalInp,
+.skillsInp,
+.projects,
+.interest {
   display: flex;
   flex-direction: column;
 }
@@ -28,7 +31,9 @@ p {
 .personalInp input,
 .professionalInp input,
 .educationalInp input,
-#description {
+.skillsInp input,
+.projects input,
+.interest input {
   background-color: rgba(160, 160, 160, 0.3);
   padding: 0.45rem;
   margin-bottom: 1rem;
@@ -170,4 +175,25 @@ p {
   margin: 0;
   margin-top: 0.5rem;
   font-weight: bold;
+}
+
+.delBtn, .addBtn, .changeBtn {
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.changeBtn {
+  color: white;
+  background-color: #413F42;
+}
+.delBtn {
+  background-color: #F96666;
+  margin-bottom: 0.5rem
+}
+
+.addBtn {
+  background-color: #59CE8F;
 }

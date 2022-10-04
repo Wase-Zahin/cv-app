@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import UniTemplate from "./uniTemplate";
 
 class Template extends Component {
     constructor(props) {
@@ -8,12 +9,13 @@ class Template extends Component {
     render() {
         const {firstName, lastName, title, phoneNo, email, address,
                university, uniCity, degree, sub, uniFrom, uniTo,
-               position, company, expCity, expFrom, expTo} = this.props;
+               position, company, expCity, expFrom, expTo, uniTemplateState} = this.props;
         return (
             <div className='template'>
                 <p className="name">{firstName || 'Your'} {lastName || 'Name'}</p>
                 <p className="title">{title || 'Job Title'}</p>
                 <p className="address">{address || '123 Your street, Your city ABCD'}, {phoneNo || ', Your Phone Number'}, {email || ', Your email Address'}</p>
+
                 <p className="headerEdu">Education</p><div className="hr"></div>
                 <div className="university">
                     <p className="universityName">{university || 'Your university name'} - {degree || 'degree'}</p>
@@ -22,7 +24,9 @@ class Template extends Component {
                 <div className="courses">
                     <li>Courses: Name All Of Your Courses</li>
                     <li>Things like your achievements and activities</li>
+                    {uniTemplateState.map(component => <UniTemplate key={component.key}/>)}
                 </div>
+                
                 <p className="headerSkills">Skills</p><div className="hr"></div>
                 <div className="skillsDiv">
                     <li>Your skills</li>
