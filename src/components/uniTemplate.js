@@ -6,11 +6,11 @@ class UniTemplate extends Component {
     }
 
     render() {
-    const {degree, university, uniFrom, uniTo} = this.props;
+    const {degree, university, uniFrom, uniTo, uniCnt} = this.props;
     return(
         <div>
             <div className="university">
-            <p className="universityName">{university || 'Your university name'} - {degree || 'degree'}</p>
+            <p key={uniCnt} className="universityName">{university || 'Your university name'} - {degree || 'degree'}</p>
             <p className="duration">{uniFrom || 'From'} - {uniTo || 'To'}</p>
             </div>
             <div className="courses">
@@ -18,6 +18,7 @@ class UniTemplate extends Component {
             <li>Things like your achievements and activities</li>
             </div>
         </div>
+                
     )}
 }
 

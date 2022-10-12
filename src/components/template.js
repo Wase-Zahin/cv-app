@@ -2,14 +2,10 @@ import React, { Component } from "react";
 import UniTemplate from "./uniTemplate";
 
 class Template extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const {firstName, lastName, title, phoneNo, email, address,
-               university, uniCity, degree, sub, uniFrom, uniTo,
-               position, company, expCity, expFrom, expTo, uniTemplateState} = this.props;
+               university, degree, sub, uniFrom, uniTo,
+               position, company, expCity, expFrom, expTo, uniTemplateArr, uniCnt} = this.props;
         return (
             <div className='template'>
                 <p className="name">{firstName || 'Your'} {lastName || 'Name'}</p>
@@ -24,7 +20,7 @@ class Template extends Component {
                 <div className="courses">
                     <li>Courses: Name All Of Your Courses</li>
                     <li>Things like your achievements and activities</li>
-                    {uniTemplateState.map(component => <UniTemplate key={component.key}/>)}
+                    {uniTemplateArr.map(component => <UniTemplate key={component.key} uniCnt={uniCnt}/>)}
                 </div>
                 
                 <p className="headerSkills">Skills</p><div className="hr"></div>
