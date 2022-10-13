@@ -48,6 +48,13 @@ p {
   margin-top: 1rem;
 }
 
+.personalInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .maker,
 .template {
   box-sizing: border-box;
@@ -197,3 +204,4 @@ p {
 .addBtn {
   background-color: #59CE8F;
 }
+

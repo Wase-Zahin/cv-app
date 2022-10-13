@@ -7,28 +7,35 @@ import Projects from "./projects";
 import Interests from "./interests";
 class Maker extends Component {
     render() {
-    const {addUniFn, id, university} = this.props;
+    const {addUniFn, university, handleUniChange, onSubmitForm,
+          handlePersonalInfoChange, personalInfo} = this.props;
 
     const uniItems = university.map((uniItem) => {
-        <University>
-        key={uniItem.id}
-        id={uniItem.id}
-        uniItem={uniItem}
-        </University>
+        return (
+            <University
+            key={uniItem.id}
+            id={uniItem.id}
+            name={uniItem.name}
+            uniItem={uniItem}
+            handleUniChange={handleUniChange}
+            ></University>
+        )
     })
+
     return(
         <div className='maker'>
-            <PersonalInfo/>
+            <PersonalInfo onSubmitForm={onSubmitForm}
+            handlePersonalInfoChange={handlePersonalInfoChange}
+            personalInfo={personalInfo}/>
+
             {uniItems}
             <button type="button" className="addBtn" onClick={addUniFn}>Add</button>
-
             <Experience/>
             <Skills/>
             <Projects/>
             <Interests/>            
         </div>
-        
-    )
-}
+        )
+    }
 }
 export default Maker;

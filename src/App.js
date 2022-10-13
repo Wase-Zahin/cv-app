@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import Template from './components/template';
 import Maker from './components/maker';
 import University from './components/university';
-import UniTemplate from './components/uniTemplate';
 import uniqid from "uniqid";
 
 class App extends Component {
@@ -29,6 +28,7 @@ class App extends Component {
       //image: null,
     };
 
+    this.handleUniChange = this.handleUniChange.bind(this);
     this.handlePersonalInfoChange = this.handlePersonalInfoChange.bind(this);
     this.onSubmitForm = this.onSubmitForm.bind(this);
     this.onClickMaker = this.onClickMaker.bind(this);
@@ -47,12 +47,7 @@ class App extends Component {
   }
 
   handleUniChange = (e) => {
-    let university = this.state.university;
-    let name = e.target.name;
-    let val = e.target.value;
-
-    university[name] = val;
-    this.setState({university});
+    
   }
 
   addUniFn(e, id) {
@@ -76,8 +71,6 @@ class App extends Component {
         }
       ]
     }))
-
-    console.log(this.state.university);
   }
 
   onClickMaker(e) {
@@ -96,7 +89,7 @@ class App extends Component {
 
   onSubmitForm(e) {
     e.preventDefault();
-    console.log(this.state.university[1], this.state.personalInfo);
+    console.log(this.state.university);
   }
   /*onImageChange(e) {
     if (e.target.files && e.target.files[0]) {
@@ -113,7 +106,8 @@ class App extends Component {
     const {name, city, degree, sub, from, to} = this.state.university;
     const {company, expCity, expFrom, expTo} = this.state.experience;
     
-    const {showMaker, showTemplate, uniMakerArr, uniTemplateArr, university} = this.state;
+    const {showMaker, showTemplate, university, personalInfo} = this.state;
+
     return (
       <div>
         <header className="header">
@@ -129,29 +123,25 @@ class App extends Component {
           <Maker
           university={university}
           handlePersonalInfoChange={this.handlePersonalInfoChange} 
+          handleUniChange={this.handleUniChange}
           addUniFn={this.addUniFn}
           onSubmitForm={this.onSubmitForm} 
+
           name={name} city={city} degree={degree}
           sub={sub} from={from} to={to}
-          handleUniChange={this.state.handleUniChange}
-          uniMakerArr={uniMakerArr}/>  : null}
+          /> : null}
 
           {showTemplate ? <Template 
+          personalInfo={personalInfo}
           onSubmitForm={this.onSubmitForm}
-          uniMakerArr={uniMakerArr}
-          uniTemplateArr={uniTemplateArr}
+          university={university}
           //state value for object "personalInfo"
           firstName={firstName} 
           lastName={lastName}
           title={title}
           phoneNo={phoneNo} 
           email={email} 
-          address={address}
-          position={position}
-          company={company} 
-          expCity={expCity} 
-          expFrom={expFrom} 
-          expTo={expTo}/> : null}
+          address={address} /> : null}
         </div>
       </div>
     );
