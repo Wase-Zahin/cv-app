@@ -2,6 +2,7 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 
 }
+
 p {
   margin: 1rem 0;
 }
@@ -184,7 +185,9 @@ p {
   font-weight: bold;
 }
 
-.delBtn, .addBtn, .changeBtn {
+.delBtn,
+.addBtn,
+.changeBtn {
   font-size: 1rem;
   border-radius: 0.3rem;
   font-weight: bold;
@@ -196,6 +199,7 @@ p {
   color: white;
   background-color: #413F42;
 }
+
 .delBtn {
   background-color: #F96666;
   margin-bottom: 0.5rem
@@ -204,4 +208,3 @@ p {
 .addBtn {
   background-color: #59CE8F;
 }
-

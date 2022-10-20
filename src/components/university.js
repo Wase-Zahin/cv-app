@@ -2,24 +2,24 @@ import React, {Component} from "react";
 
 class University extends Component {
   render() {
-  const {handleUniChange, uniItem} = this.props;
+  const {id, onChange, uniItem} = this.props;
   return(
     <div className='educationalInp'>
       <p className="headerText">Education</p>
       
       <input 
       type="text" 
-      name="university" 
+      name="name" 
       value={uniItem.name} 
-      onChange={handleUniChange} 
+      onChange={(e) => onChange(e, id)} 
       placeholder="University">
       </input>
 
       <input 
       type="text" 
-      name="uniCity" 
+      name="city" 
       value={uniItem.city} 
-      onChange={handleUniChange} 
+      onChange={(e) => onChange(e, id)} 
       placeholder="City, Province">
       </input>
 
@@ -27,7 +27,7 @@ class University extends Component {
       type="text" 
       name="degree" 
       value={uniItem.degree} 
-      onChange={handleUniChange} 
+      onChange={(e) => onChange(e, id)} 
       placeholder="Degree">
       </input>
 
@@ -35,23 +35,23 @@ class University extends Component {
       type="text" 
       name="sub" 
       value={uniItem.sub} 
-      onChange={handleUniChange} 
+      onChange={(e) => onChange(e, id)} 
       placeholder="Subject">
       </input>
 
       <input 
       type="text" 
-      name="uniFrom" 
+      name="from" 
       value={uniItem.from} 
-      onChange={handleUniChange} 
+      onChange={(e) => onChange(e, id)} 
       placeholder="From">
       </input> 
 
       <input 
       type="text" 
-      name="uniTo" 
+      name="to" 
       value={uniItem.to} 
-      onChange={handleUniChange} 
+      onChange={(e) => onChange(e, id)} 
       placeholder="To">
       </input>
       <button type="button" className="delBtn" >Delete</button> 

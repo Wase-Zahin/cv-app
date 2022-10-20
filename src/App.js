@@ -2,7 +2,6 @@ import './App.css';
 import React, {Component} from 'react';
 import Template from './components/template';
 import Maker from './components/maker';
-import University from './components/university';
 import uniqid from "uniqid";
 
 class App extends Component {
@@ -10,7 +9,17 @@ class App extends Component {
     super(props);
 
     this.state = {
-      personalInfo: {},
+      personalInfo: 
+        {
+          id: uniqid(),
+          firstName: '',
+          lastName: '',
+          title: '',
+          email: '',
+          address: '',
+          phoneNo: '',
+        },
+
       university: [
         {
           id: uniqid(),
@@ -22,42 +31,70 @@ class App extends Component {
           to: '',
         }
       ], 
-      experience: [],
+
+      experience: [
+        {
+          id: uniqid(),
+          position: '',
+          company: '',
+          city: '',
+          from: '',
+          to: '',
+        }
+      ],
+
       showMaker: true,
       showTemplate: false,
-      //image: null,
     };
 
     this.handleUniChange = this.handleUniChange.bind(this);
+    this.handleCompChange = this.handleCompChange.bind(this);
     this.handlePersonalInfoChange = this.handlePersonalInfoChange.bind(this);
-    this.onSubmitForm = this.onSubmitForm.bind(this);
     this.onClickMaker = this.onClickMaker.bind(this);
     this.onClickTemplate = this.onClickTemplate.bind(this);
     this.addUniFn = this.addUniFn.bind(this);
-    //this.onImageChange = this.onImageChange.bind(this);
+    this.addCompFn = this.addCompFn.bind(this);
   }
-// onsubmitForm template should read
+
   handlePersonalInfoChange = (e) => {
-    let personalInfo = this.state.personalInfo;
-    let name = e.target.name;
-    let val = e.target.value;
-    
-    personalInfo[name] = val;
-    this.setState({personalInfo})
+    const { name, value } = e.target;
+
+    this.setState((prevState) => ({
+      ...prevState,
+      personalInfo: {
+        ...prevState.personalInfo,
+        [name]: value,
+      },
+    }))
   }
 
-  handleUniChange = (e) => {
-    
-  }
-
-  addUniFn(e, id) {
-    const {university} = this.state;
-    const {name, val} = e.target
-
-    const newElements = university.map(elem => {
-      if (elem.id == id) return elem;
+  handleUniChange = (e, id) => {
+    const { name, value } = e.target
+    this.setState((prevState) => {
+      const newEducation = prevState.university.map((educationItem) => {
+        if (educationItem.id === id) {
+          return { ...educationItem, [name]: value }
+        }
+        return educationItem
+      })
+      return { ...prevState, university: [...newEducation] }
     })
-    
+  }
+
+  handleCompChange = (e, id) => {
+    const { name, value } = e.target
+    this.setState((prevState) => {
+      const newExperience = prevState.experience.map((experienceItem) => {
+        if (experienceItem.id === id) {
+          return { ...experienceItem, [name]: value }
+        }
+        return experienceItem
+      })
+      return { ...prevState, experience: [...newExperience] }
+    })
+  }
+
+  addUniFn() {
     this.setState(prevState => ({
       university: [...prevState.university, 
         {
@@ -70,6 +107,21 @@ class App extends Component {
           to: '',
         }
       ]
+    }))
+  }
+
+  addCompFn() {
+    this.setState(prevState => ({
+      experience: [...prevState.experience,
+        {
+          id: uniqid(),
+          position: '',
+          company: '',
+          city: '',
+          from: '',
+          to: '',
+        }
+      ],
     }))
   }
 
@@ -87,61 +139,40 @@ class App extends Component {
     })
   }
 
-  onSubmitForm(e) {
-    e.preventDefault();
-    console.log(this.state.university);
-  }
-  /*onImageChange(e) {
-    if (e.target.files && e.target.files[0]) {
-      let img = e.target.files[0];
-      this.setState({
-        image: URL.createObjectURL(img)
-      });
-    }
-  };*/
-
   render() {
-    const {firstName, lastName, title, phoneNo, email,
-           address, position} = this.state.personalInfo; 
-    const {name, city, degree, sub, from, to} = this.state.university;
-    const {company, expCity, expFrom, expTo} = this.state.experience;
-    
-    const {showMaker, showTemplate, university, personalInfo} = this.state;
+    const {showMaker, showTemplate, university, personalInfo, experience} = this.state;
 
     return (
       <div>
         <header className="header">
           Curriculum Vitae!
         </header>
+
         <nav className="nav">
           <a onClick={this.onClickMaker}>Maker</a>
           <div className='vl'></div>
           <a onClick={this.onClickTemplate}>Preview</a>
         </nav>
+
         <div>
           {showMaker ? 
           <Maker
           university={university}
+          experience={experience}
+          personalInfo={personalInfo}
           handlePersonalInfoChange={this.handlePersonalInfoChange} 
-          handleUniChange={this.handleUniChange}
+          onCompChange={this.handleCompChange}
+          onChange={this.handleUniChange}
           addUniFn={this.addUniFn}
+          addCompFn={this.addCompFn}
           onSubmitForm={this.onSubmitForm} 
-
-          name={name} city={city} degree={degree}
-          sub={sub} from={from} to={to}
           /> : null}
 
           {showTemplate ? <Template 
           personalInfo={personalInfo}
-          onSubmitForm={this.onSubmitForm}
           university={university}
-          //state value for object "personalInfo"
-          firstName={firstName} 
-          lastName={lastName}
-          title={title}
-          phoneNo={phoneNo} 
-          email={email} 
-          address={address} /> : null}
+          experience={experience}
+          /> : null}
         </div>
       </div>
     );

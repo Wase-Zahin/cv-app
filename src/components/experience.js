@@ -2,22 +2,45 @@ import React, {Component} from "react";
 
 class Experience extends Component {
   render() {
-  const {experience, handlePersonalInfoChange} = this.props;
+  const {id, expItem, onCompChange} = this.props;
   return(
-    <div>
+    <div className='professionalInp'>
         <p className="headerText">Experience</p>
-        <form className='professionalInp'>
-            <label htmlFor='position'></label>
-            <input type="text" name="position" value={experience} onChange={handlePersonalInfoChange} placeholder="Position"></input>
-            <label htmlFor='company'></label>
-            <input type="text" name="company" value={experience} onChange={handlePersonalInfoChange} placeholder="Company"></input>
-            <label htmlFor='expCity'></label>
-            <input type="text" name="expCity" value={experience} onChange={handlePersonalInfoChange} placeholder="City"></input>
-            <label htmlFor='expFrom'></label>
-            <input type="text" name="expFrom" value={experience} onChange={handlePersonalInfoChange} placeholder="From"></input>
-            <label htmlFor='expTo'></label>
-            <input type="text" name="expTo" value={experience} onChange={handlePersonalInfoChange} placeholder="To"></input> 
-        </form>
+        <input 
+        type="text" 
+        name="position" 
+        value={expItem.position} 
+        onChange={(e) => onCompChange(e, id)} 
+        placeholder="Position"></input>
+
+        <input 
+        type="text" 
+        name="company" 
+        value={expItem.company} 
+        onChange={(e) => onCompChange(e, id)} 
+        placeholder="Company"></input>
+
+        <input 
+        type="text" 
+        name="city" 
+        value={expItem.city} 
+        onChange={(e) => onCompChange(e, id)} 
+        placeholder="City"></input>
+        
+        <input 
+        type="text" 
+        name="from" 
+        value={expItem.from} 
+        onChange={(e) => onCompChange(e, id)} 
+        placeholder="From"></input>
+
+        <input 
+        type="text" 
+        name="to" 
+        value={expItem.to} 
+        onChange={(e) => onCompChange(e, id)} 
+        placeholder="To"></input> 
+        <button type="button" className="delBtn" >Delete</button> 
     </div>
   )}
 }

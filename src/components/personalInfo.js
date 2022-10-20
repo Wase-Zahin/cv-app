@@ -10,15 +10,15 @@ class PersonalInfo extends Component {
         <input 
         type="text" 
         name="firstName" 
-        value={personalInfo} 
-        onChange={handlePersonalInfoChange} 
+        value={personalInfo.firstName} 
+        onChange={(e) => handlePersonalInfoChange(e)} 
         placeholder="First Name">
         </input>
 
         <input 
         type="text" 
         name="lastName" 
-        value={personalInfo} 
+        value={personalInfo.lastName} 
         onChange={handlePersonalInfoChange} 
         placeholder="Last Name">
         </input>
@@ -26,7 +26,7 @@ class PersonalInfo extends Component {
         <input 
         type="text"
         name="title" 
-        value={personalInfo} 
+        value={personalInfo.title} 
         onChange={handlePersonalInfoChange}  
         placeholder="Title">
         </input>
@@ -34,7 +34,7 @@ class PersonalInfo extends Component {
         <input 
         type="text" 
         name="phoneNo" 
-        value={personalInfo} 
+        value={personalInfo.phoneNo} 
         onChange={handlePersonalInfoChange}  
         placeholder="Phone Number">
         </input>
@@ -42,7 +42,7 @@ class PersonalInfo extends Component {
         <input 
         type="text" 
         name="email" 
-        value={personalInfo} 
+        value={personalInfo.email} 
         onChange={handlePersonalInfoChange}  
         placeholder="Email Address">
         </input> 
@@ -50,7 +50,7 @@ class PersonalInfo extends Component {
         <input 
         type="text" 
         name="address" 
-        value={personalInfo} 
+        value={personalInfo.address} 
         onChange={handlePersonalInfoChange} 
         placeholder="Address">
         </input>

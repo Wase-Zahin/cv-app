@@ -1,16 +1,34 @@
 import React, { Component } from "react";
 import PersonalInfoTemplate from "./personalInfoTemplate";
 import UniTemplate from "./universityTemplate";
-import SkillsTemplate from "./skillsTemplate";
 import ExperienceTemplate from "./experienceTemplate";
+import SkillsTemplate from "./skillsTemplate";
 import ProjectsTemplate from "./projectsTemplate";
 import InterestsTemplate from "./interestsTemplate";
 class Template extends Component {
     render() {
-        const {university, personalInfo, onSubmitForm, handlePersonalInfoChange} = this.props;
+        const {university, experience, personalInfo, onSubmitForm, handlePersonalInfoChange} = this.props;
+
         const uniItems = university.map((uniItem) => {
-            return uniItem;
+            return (
+                <UniTemplate
+                key={uniItem.id}
+                id={uniItem.id}
+                uniItem={uniItem}
+                ></UniTemplate>
+            )
         })
+
+        const expItems = experience.map((expItem) => {
+            return (
+                <ExperienceTemplate
+                key={expItem.id}
+                id={expItem.id}
+                expItem={expItem}
+                ></ExperienceTemplate>
+            )
+        })
+
         return (
             <div className='template'>
 
@@ -22,7 +40,7 @@ class Template extends Component {
 
                 {uniItems}
                 <SkillsTemplate></SkillsTemplate>
-                <ExperienceTemplate></ExperienceTemplate>
+                {expItems}
                 <ProjectsTemplate></ProjectsTemplate>
                 <InterestsTemplate></InterestsTemplate>
             </div>

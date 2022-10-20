@@ -8,7 +8,7 @@ class PersonalInfoTemplate extends Component {
             <div className='personalInfo'>
                 <p className="name">
                     {personalInfo.firstName || 'Your'} 
-                    {personalInfo.lastName || 'Name'}
+                    {personalInfo.lastName || ' Name'}
                 </p>
 
                 <p className="title">

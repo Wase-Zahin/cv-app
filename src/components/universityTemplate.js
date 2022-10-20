@@ -1,12 +1,8 @@
 import React, {Component} from "react";
 
 class UniTemplate extends Component {
-    constructor(props) {
-      super(props);
-    }
-
     render() {
-    const {degree, university, uniFrom, uniTo, uniCnt} = this.props;
+    const {uniItem} = this.props;
     return(
         <div>
             <p className="headerEdu">Education</p>
@@ -14,12 +10,12 @@ class UniTemplate extends Component {
 
             <div className="university">
                 <p className="universityName">
-                    {'university' || 'Your university name'} -  
-                    {degree || ' degree'}
+                    {uniItem.name || 'Your university name'} -  
+                    {uniItem.degree || ' degree'}
                 </p>
                 <p className="duration">
-                    {uniFrom || 'From '} - 
-                    {uniTo || ' To'}
+                    {uniItem.uniFrom || 'From '} - 
+                    {uniItem.uniTo || ' To'}
                 </p>
             </div>
 
