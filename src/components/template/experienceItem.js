@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 
-class ExperienceTemplate extends Component {
+class ExperienceItem extends Component {
     render() {
         const {expItem} = this.props;
 
         return (
-            <div className="professionalExp">
-                <p className="headerProfExp">Professional Experience</p>
-                <div className="hr"></div>
-
+            <div>
                 <div className="jobTitleCity">
                     <p className="jobTitle">
                         {expItem.position || 'The title of your job in the company'}
@@ -37,4 +34,4 @@ class ExperienceTemplate extends Component {
     }
 }
 
-export default ExperienceTemplate;
+export default ExperienceItem;

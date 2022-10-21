@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class PersonalInfoTemplate extends Component {
+class PersonalInfo extends Component {
     render() {
         const {personalInfo} = this.props;
 
@@ -16,12 +16,12 @@ class PersonalInfoTemplate extends Component {
                 </p>
 
                 <p className="address">
-                    {personalInfo.address || '123 Your street, Your city ABCD'}, 
-                    {personalInfo.phoneNo || ' Your Phone Number'}, 
-                    {personalInfo.email || ' Your email Address'}</p>
+                    {personalInfo.address || '123 Your street , Your city ABCD'} • 
+                    <li>{personalInfo.phoneNo || 'Your Phone Number'}</li>•
+                    <li>{personalInfo.email || 'Your email Address'}</li></p>
             </div>
         )
     }
 }
 
-export default PersonalInfoTemplate;
+export default PersonalInfo;

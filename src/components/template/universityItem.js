@@ -1,21 +1,18 @@
 import React, {Component} from "react";
 
-class UniTemplate extends Component {
+class UniversityItem extends Component {
     render() {
     const {uniItem} = this.props;
     return(
         <div>
-            <p className="headerEdu">Education</p>
-            <div className="hr"></div>
-
             <div className="university">
                 <p className="universityName">
-                    {uniItem.name || 'Your university name'} -  
+                    {uniItem.name || 'Your university name'}- 
                     {uniItem.degree || ' degree'}
                 </p>
                 <p className="duration">
-                    {uniItem.uniFrom || 'From '} - 
-                    {uniItem.uniTo || ' To'}
+                    {uniItem.from || 'From '}- 
+                    {uniItem.to || ' To'}
                 </p>
             </div>
 
@@ -27,4 +24,4 @@ class UniTemplate extends Component {
     )}
 }
 
-export default UniTemplate;
+export default UniversityItem;

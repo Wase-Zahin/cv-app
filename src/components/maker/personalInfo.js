@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 class PersonalInfo extends Component {
   render() {
-  const {handlePersonalInfoChange, onSubmitForm, personalInfo} = this.props;
+  const {handlePersonalInfoChange, personalInfo} = this.props;
   return(
     <div className="personalInp">
         <p className="headerText">Personal Information</p>
@@ -54,8 +54,6 @@ class PersonalInfo extends Component {
         onChange={handlePersonalInfoChange} 
         placeholder="Address">
         </input>
-        
-        <button className="changeBtn" type="button" onClick={onSubmitForm}>Change</button>
     </div>
   )}
 }

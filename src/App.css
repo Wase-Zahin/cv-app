@@ -41,6 +41,7 @@ p {
   border-radius: 0.1rem;
 }
 
+
 .template {
   background-color: rgb(238, 67, 67);
   height: 500px;
@@ -120,9 +121,13 @@ p {
 
 .hr {
   margin: 1rem 0;
-  margin-bottom: 0;
   height: 1px;
   background-color: black;
+}
+
+.address li {
+  display: inline-block;
+  margin: 0 0.5rem;
 }
 
 .headerEdu,
@@ -135,9 +140,7 @@ p {
   font-size: 1.5rem;
 }
 
-.skillsDiv,
 .courses,
-.projectWorks,
 .interestNames {
   margin: 1rem 0;
 }
@@ -150,10 +153,6 @@ p {
 .companyWorks {
   margin-top: 0;
   margin-bottom: 1rem;
-}
-
-.skills {
-  margin-top: 2rem;
 }
 
 .university,
@@ -181,7 +180,6 @@ p {
 .jobDiv p,
 .jobTitleCity p {
   margin: 0;
-  margin-top: 0.5rem;
   font-weight: bold;
 }
 
