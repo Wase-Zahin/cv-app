@@ -2,18 +2,15 @@ import React, {Component} from "react";
 
 class Interests extends Component {
   render() {
-  const {id, interestsItem, onInterestsChange} = this.props;
+  const {id, interestsItem, onInterestsChange, handleInterestsDelete} = this.props;
   return(
-    <div>
-        <p className="headerText">Interests</p>
-        <form className='interest'>
-            <label htmlFor='interest'></label>
-            <input type="text" 
-            name="interest" 
-            value={interestsItem.interest}
-            onChange={(e) => onInterestsChange(e, id)} 
-            placeholder="Interest"></input>
-        </form>
+    <div className='interest'>
+        <input type="text" 
+        name="interest" 
+        value={interestsItem.interest}
+        onChange={(e) => onInterestsChange(e, id)} 
+        placeholder="Interest"></input>
+        <button type="button" className="delBtn" onClick={() => handleInterestsDelete(id)}>Delete</button> 
     </div>
   )}
 }

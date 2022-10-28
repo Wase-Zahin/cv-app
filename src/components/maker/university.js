@@ -2,11 +2,9 @@ import React, {Component} from "react";
 
 class University extends Component {
   render() {
-  const {id, onChange, uniItem} = this.props;
+  const {id, onChange, uniItem, handleUniDelete} = this.props;
   return(
     <div className='educationalInp'>
-      <p className="headerText">Education</p>
-      
       <input 
       type="text" 
       name="name" 
@@ -33,6 +31,22 @@ class University extends Component {
 
       <input 
       type="text" 
+      name="courses" 
+      value={uniItem.courses} 
+      onChange={(e) => onChange(e, id)} 
+      placeholder="Courses">
+      </input>
+
+      <input 
+      type="text" 
+      name="achievements" 
+      value={uniItem.achievements} 
+      onChange={(e) => onChange(e, id)} 
+      placeholder="Achievements">
+      </input>
+
+      <input 
+      type="text" 
       name="sub" 
       value={uniItem.sub} 
       onChange={(e) => onChange(e, id)} 
@@ -54,7 +68,7 @@ class University extends Component {
       onChange={(e) => onChange(e, id)} 
       placeholder="To">
       </input>
-      <button type="button" className="delBtn" >Delete</button> 
+      <button type="button" className="delBtn" onClick={() => handleUniDelete(id)}>Delete</button> 
     </div>
   )}
 }

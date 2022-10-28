@@ -7,18 +7,16 @@ class UniversityItem extends Component {
         <div>
             <div className="university">
                 <p className="universityName">
-                    {uniItem.name || 'Your university name'}- 
-                    {uniItem.degree || ' degree'}
+                    {uniItem.name || 'Your university name'} - {uniItem.degree || ' Degree'}, {uniItem.city || 'City'}
                 </p>
                 <p className="duration">
-                    {uniItem.from || 'From '}- 
-                    {uniItem.to || ' To'}
+                    {uniItem.from || 'From '} - {uniItem.to || ' To'}
                 </p>
             </div>
 
             <div className="courses">
-                <li>Courses: Name All Of Your Courses</li>
-                <li>Things like your achievements and activities</li>
+                <li>Courses: {uniItem.courses || 'Name All Of Your Courses'}</li>
+                <li>{uniItem.achievements || 'Achievements: List Your Achievements'}</li>
             </div>
         </div>
     )}

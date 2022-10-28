@@ -2,10 +2,9 @@ import React, {Component} from "react";
 
 class Experience extends Component {
   render() {
-  const {id, expItem, onCompChange} = this.props;
+  const {id, expItem, onCompChange, handleCompDelete} = this.props;
   return(
     <div className='professionalInp'>
-        <p className="headerText">Experience</p>
         <input 
         type="text" 
         name="position" 
@@ -40,7 +39,7 @@ class Experience extends Component {
         value={expItem.to} 
         onChange={(e) => onCompChange(e, id)} 
         placeholder="To"></input> 
-        <button type="button" className="delBtn" >Delete</button> 
+        <button type="button" className="delBtn" onClick={() => handleCompDelete(id)}>Delete</button> 
     </div>
   )}
 }

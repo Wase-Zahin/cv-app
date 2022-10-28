@@ -2,20 +2,17 @@ import React, {Component} from "react";
 
 class Skills extends Component {
   render() {
-  const {id, skillsItem, onSkillsChange} = this.props;
+  const {id, skillsItem, onSkillsChange, handleSkillsDelete} = this.props;
   return(
-    <div>
-        <p className="headerText">Skills</p>
-        <form className='skillsInp'>
-            <label htmlFor='skill'></label>
-            <input 
-            type="text" 
-            name="skill" 
-            value={skillsItem.skill}
-            onChange={(e) => onSkillsChange(e, id)}
-            placeholder="Skill">
-            </input>
-        </form>
+    <div className='skillsInp'>
+      <input 
+      type="text" 
+      name="skill" 
+      value={skillsItem.skill}
+      onChange={(e) => onSkillsChange(e, id)}
+      placeholder="Skill">
+      </input>
+      <button type="button" className="delBtn" onClick={() => handleSkillsDelete(id)}>Delete</button> 
     </div>
   )}
 }

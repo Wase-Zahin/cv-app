@@ -41,7 +41,7 @@ p {
   border-radius: 0.1rem;
 }
 
-
+/*
 .template {
   background-color: rgb(238, 67, 67);
   height: 500px;
@@ -49,7 +49,7 @@ p {
   margin: auto;
   margin-top: 1rem;
 }
-
+*/
 .personalInfo {
   display: flex;
   flex-direction: column;
@@ -58,7 +58,7 @@ p {
 }
 
 .maker,
-.template {
+#template {
   box-sizing: border-box;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.24);
   display: grid;
@@ -114,8 +114,7 @@ p {
   margin: auto;
 }
 
-.title,
-.address {
+.title{
   margin: auto;
 }
 
@@ -125,9 +124,13 @@ p {
   background-color: black;
 }
 
+.address {
+  display: inline-flex;
+}
+
 .address li {
-  display: inline-block;
-  margin: 0 0.5rem;
+  margin: 0 1rem;
+
 }
 
 .headerEdu,
@@ -145,6 +148,10 @@ p {
   margin: 1rem 0;
 }
 
+.interestNames {
+  margin-right: 1rem;
+  display: inline-block;
+}
 .projectWorks li {
   font-size: 1.25rem;
   padding: 0.5rem 0;

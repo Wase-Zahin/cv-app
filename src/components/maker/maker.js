@@ -7,9 +7,12 @@ import Projects from "./projects";
 import Interests from "./interests";
 class Maker extends Component {
     render() {
-    const {addUniFn, university, onChange, onCompChange, onSubmitForm, onSkillsChange, projects,
-          handlePersonalInfoChange, personalInfo, experience, addCompFn, skills, addSkillsFn,
-          addProjectsFn, onProjectsChange, onInterestsChange, addInterestsFn, interests} = this.props;
+    const {addUniFn, university, onChange, onCompChange, onSubmitForm, 
+          onSkillsChange, projects, handlePersonalInfoChange, 
+          personalInfo, experience, addCompFn, skills, addSkillsFn,
+          addProjectsFn, onProjectsChange, onInterestsChange, 
+          addInterestsFn, interests, handleUniDelete, handleCompDelete,
+          handleSkillsDelete, handleProjectsDelete, handleInterestsDelete} = this.props;
 
     const uniItems = university.map((uniItem) => {
         return (
@@ -18,6 +21,7 @@ class Maker extends Component {
             id={uniItem.id}
             uniItem={uniItem}
             onChange={onChange}
+            handleUniDelete={handleUniDelete}
             ></University>
         )
     })
@@ -29,6 +33,7 @@ class Maker extends Component {
             id={expItem.id}
             expItem={expItem}
             onCompChange={onCompChange}
+            handleCompDelete={handleCompDelete}
             ></Experience>
         )
     })
@@ -40,6 +45,7 @@ class Maker extends Component {
             id={skillsItem.id}
             skillsItem={skillsItem}
             onSkillsChange={onSkillsChange}
+            handleSkillsDelete={handleSkillsDelete}
             ></Skills>
         )
     })
@@ -51,6 +57,7 @@ class Maker extends Component {
             id={projectsItem.id}
             projectsItem={projectsItem}
             onProjectsChange={onProjectsChange}
+            handleProjectsDelete={handleProjectsDelete}
             ></Projects>
         )
     })
@@ -62,6 +69,7 @@ class Maker extends Component {
             id={interestsItem.id}
             interestsItem={interestsItem}
             onInterestsChange={onInterestsChange}
+            handleInterestsDelete={handleInterestsDelete}
             ></Interests>
         )
     })
@@ -74,18 +82,23 @@ class Maker extends Component {
             personalInfo={personalInfo}
             />
 
+            <p className="headerText">Education</p>
             {uniItems}
             <button type="button" className="addBtn" onClick={addUniFn}>Add</button>
 
+            <p className="headerText">Experience</p>
             {expItems}
             <button type="button" className="addBtn" onClick={addCompFn}>Add</button>
 
+            <p className="headerText">Skills</p>
             {skillsItems}
             <button type="button" className="addBtn" onClick={addSkillsFn}>Add</button>
             
+            <p className="headerText">Projects</p>
             {projectsItems}
             <button type="button" className="addBtn" onClick={addProjectsFn}>Add</button>
             
+            <p className="headerText">Interests</p>
             {interestsItems}      
             <button type="button" className="addBtn" onClick={addInterestsFn}>Add</button>      
         </div>

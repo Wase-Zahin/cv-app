@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import Template from './components/template/template';
 import Maker from './components/maker/maker';
 import uniqid from "uniqid";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +25,8 @@ class App extends Component {
           name: '',
           degree: '',
           sub: '',
+          courses: '',
+          achievements: '',
           city: '',
           from: '',
           to: '',
@@ -81,6 +82,11 @@ class App extends Component {
     this.addSkillsFn = this.addSkillsFn.bind(this);
     this.addProjectsFn = this.addProjectsFn.bind(this);
     this.addInterestsFn = this.addInterestsFn.bind(this);
+    this.handleUniDelete = this.handleUniDelete.bind(this);
+    this.handleCompDelete = this.handleCompDelete.bind(this);
+    this.handleProjectsDelete = this.handleProjectsDelete.bind(this);
+    this.handleSkillsDelete = this.handleSkillsDelete.bind(this);
+    this.handleInterestsDelete = this.handleInterestsDelete.bind(this);
   }
 
   handlePersonalInfoChange = (e) => {
@@ -108,6 +114,16 @@ class App extends Component {
     })
   }
 
+
+  handleUniDelete = (id) => {
+    this.setState((prevState) => {
+      const newEducation = prevState.university.filter((educationItem) => 
+        educationItem.id !== id 
+      )
+      return {...prevState, university: [...newEducation]}
+    })
+  }
+
   handleCompChange = (e, id) => {
     const { name, value } = e.target
     this.setState((prevState) => {
@@ -118,6 +134,15 @@ class App extends Component {
         return experienceItem
       })
       return { ...prevState, experience: [...newExperience] }
+    })
+  }
+
+  handleCompDelete = (id) => {
+    this.setState((prevState) => {
+      const newExperience = prevState.experience.filter((experienceItem) => 
+        experienceItem.id !== id 
+      )
+      return {...prevState, experience: [...newExperience]}
     })
   }
 
@@ -134,6 +159,15 @@ class App extends Component {
     })
   }
 
+  handleSkillsDelete = (id) => {
+    this.setState((prevState) => {
+      const newSkills = prevState.skills.filter((skillsItem) => 
+      skillsItem.id !== id 
+      )
+      return {...prevState, skills: [...newSkills]}
+    })
+  }
+
   handleProjectsChange = (e, id) => {
     const { name, value } = e.target
     this.setState((prevState) => {
@@ -144,6 +178,15 @@ class App extends Component {
         return projectsItem
       })
       return { ...prevState, projects: [...newProjects] }
+    })
+  }
+
+  handleProjectsDelete = (id) => {
+    this.setState((prevState) => {
+      const newProjects = prevState.projects.filter((projectsItem) => 
+      projectsItem.id !== id 
+      )
+      return {...prevState, projects: [...newProjects]}
     })
   }
 
@@ -160,6 +203,15 @@ class App extends Component {
     })
   }
 
+  handleInterestsDelete = (id) => {
+    this.setState((prevState) => {
+      const newInterests = prevState.interests.filter((interestsItem) => 
+      interestsItem.id !== id 
+      )
+      return {...prevState, interests: [...newInterests]}
+    })
+  }
+
   addUniFn() {
     this.setState(prevState => ({
       university: [...prevState.university, 
@@ -167,7 +219,8 @@ class App extends Component {
           id: uniqid(),
           name: '',
           degree: '',
-          sub: '',
+          courses: '',
+          achievements: '',
           city: '',
           from: '',
           to: '',
@@ -274,6 +327,11 @@ class App extends Component {
           addSkillsFn={this.addSkillsFn}
           addProjectsFn={this.addProjectsFn}
           addInterestsFn={this.addInterestsFn}
+          handleUniDelete={this.handleUniDelete}
+          handleSkillsDelete={this.handleSkillsDelete}
+          handleCompDelete={this.handleCompDelete}
+          handleProjectsDelete={this.handleProjectsDelete}
+          handleInterestsDelete={this.handleInterestsDelete}
           /> : null}
 
           {showTemplate ? <Template 
