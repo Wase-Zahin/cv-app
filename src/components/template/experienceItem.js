@@ -26,8 +26,7 @@ class ExperienceItem extends Component {
                 </div>
 
                 <div className="companyWorks">
-                    <li>Relevant works</li>
-                    <li>More Relevant works</li>
+                    <li>{expItem.works || 'Relevant works'}</li>
                 </div>
             </div>
         )

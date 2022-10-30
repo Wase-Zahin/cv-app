@@ -38,6 +38,7 @@ class App extends Component {
           id: uniqid(),
           position: '',
           company: '',
+          works: '',
           city: '',
           from: '',
           to: '',
@@ -87,6 +88,7 @@ class App extends Component {
     this.handleProjectsDelete = this.handleProjectsDelete.bind(this);
     this.handleSkillsDelete = this.handleSkillsDelete.bind(this);
     this.handleInterestsDelete = this.handleInterestsDelete.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   handlePersonalInfoChange = (e) => {
@@ -145,7 +147,7 @@ class App extends Component {
       return {...prevState, experience: [...newExperience]}
     })
   }
-
+  
   handleSkillsChange = (e, id) => {
     const { name, value } = e.target
     this.setState((prevState) => {
@@ -236,6 +238,7 @@ class App extends Component {
           id: uniqid(),
           position: '',
           company: '',
+          works: '',
           city: '',
           from: '',
           to: '',
@@ -291,6 +294,67 @@ class App extends Component {
     })
   }
 
+  reset() {
+    this.setState({
+      personalInfo: 
+        {
+          id: uniqid(),
+          firstName: '',
+          lastName: '',
+          title: '',
+          email: '',
+          address: '',
+          phoneNo: '',
+        },
+
+      university: [
+        {
+          id: uniqid(),
+          name: '',
+          degree: '',
+          sub: '',
+          courses: '',
+          achievements: '',
+          city: '',
+          from: '',
+          to: '',
+        }
+      ], 
+
+      experience: [
+        {
+          id: uniqid(),
+          position: '',
+          company: '',
+          city: '',
+          from: '',
+          to: '',
+        }
+      ],
+
+      skills: [
+        {
+          id: uniqid(),
+          skill: '',
+        }
+      ],
+
+      projects: [
+        {
+          id: uniqid(),
+          project: '',
+        }
+      ],
+
+      interests: [
+        {
+          id: uniqid(),
+          interest: '',
+        }
+      ],
+    })
+  }
+
   render() {
     const {showMaker, showTemplate, university, personalInfo, 
       experience, skills, projects, interests} = this.state;
@@ -319,6 +383,7 @@ class App extends Component {
           handlePersonalInfoChange={this.handlePersonalInfoChange}
           onInterestsChange={this.handleInterestsChange} 
           onCompChange={this.handleCompChange}
+          onWorkChange={this.handleWorkChange}
           onSkillsChange={this.handleSkillsChange}
           onProjectsChange={this.handleProjectsChange}
           onChange={this.handleUniChange}
@@ -334,7 +399,8 @@ class App extends Component {
           handleInterestsDelete={this.handleInterestsDelete}
           /> : null}
 
-          {showTemplate ? <Template 
+          {showTemplate ? <Template
+          reset={this.reset} 
           personalInfo={personalInfo}
           university={university}
           experience={experience}
@@ -343,6 +409,13 @@ class App extends Component {
           interests={interests}
           /> : null}
         </div>
+
+        <footer className='footer'>
+          Copyright © 2022 Zahin 
+          <a href='https://github.com/Wase-Zahin'>
+            <img className='icon' src={require("./github-icon.png")} alt='github'></img>
+          </a>
+        </footer>
       </div>
     );
   }

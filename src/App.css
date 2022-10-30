@@ -25,6 +25,7 @@ p {
 .skillsInp,
 .projects,
 .interest {
+  height: fit-content;
   display: flex;
   flex-direction: column;
 }
@@ -41,15 +42,6 @@ p {
   border-radius: 0.1rem;
 }
 
-/*
-.template {
-  background-color: rgb(238, 67, 67);
-  height: 500px;
-  width: 500px;
-  margin: auto;
-  margin-top: 1rem;
-}
-*/
 .personalInfo {
   display: flex;
   flex-direction: column;
@@ -58,7 +50,7 @@ p {
 }
 
 .maker,
-#template {
+#templateItem {
   box-sizing: border-box;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.24);
   display: grid;
@@ -67,6 +59,15 @@ p {
   width: fit-content;
   background-color: white;
   padding: 1.5rem;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+#template {
+  display: grid;
+  grid-template-columns: minmax(300px, 800px);
+  height: fit-content;
+  width: fit-content;
   margin: auto;
   margin-top: 1rem;
 }
@@ -114,7 +115,7 @@ p {
   margin: auto;
 }
 
-.title{
+.title {
   margin: auto;
 }
 
@@ -125,7 +126,8 @@ p {
 }
 
 .address {
-  display: inline-flex;
+  margin: 0.25rem 0;
+  text-align: center;
 }
 
 .address li {
@@ -148,10 +150,16 @@ p {
   margin: 1rem 0;
 }
 
+.courses li {
+  margin-left: 1.5rem;
+  text-indent: -1.5rem;
+}
+
 .interestNames {
   margin-right: 1rem;
   display: inline-block;
 }
+
 .projectWorks li {
   font-size: 1.25rem;
   padding: 0.5rem 0;
@@ -160,6 +168,11 @@ p {
 .companyWorks {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+.companyWorks li {
+  margin-left: 1rem;
+  text-indent: -1.5rem;
 }
 
 .university,
@@ -200,11 +213,9 @@ p {
   cursor: pointer;
 }
 
-.changeBtn {
-  color: white;
-  background-color: #413F42;
+.addBtn {
+  margin-top: 0;
 }
-
 .delBtn {
   background-color: #F96666;
   margin-bottom: 0.5rem
@@ -212,4 +223,21 @@ p {
 
 .addBtn {
   background-color: #59CE8F;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+  height: 3rem;
+  width: 100%;
+  background-color: #3C4048;
+  color: white;
+  gap: 0.5rem;
+}
+
+.icon {
+  height: 36px;
+  width: 36px;
 }

@@ -3,11 +3,11 @@ import ReactToPrint from 'react-to-print';
 import TemplateItem from './templateItem';
 class Template extends React.PureComponent {
   render() {
-    const {university, experience, personalInfo, skills, interests, projects} = this.props;
+    const {university, experience, personalInfo, skills, interests, projects, reset} = this.props;
     
     return (        
-      <div>
-        <TemplateItem
+      <div id='template'>
+        <TemplateItem 
         university={university}
         experience={experience}
         personalInfo={personalInfo}
@@ -15,15 +15,18 @@ class Template extends React.PureComponent {
         interests={interests}
         projects={projects}
         ref={el => (this.componentRef = el)} />
-        <ReactToPrint
+        <ReactToPrint 
           trigger={() => {
             return <button type="button" className="addBtn">Generate PDF</button>;
           }}
           content={() => this.componentRef}
         />
+        <button type="button" className="delBtn" onClick={reset}>Reset</button>
       </div>
     );
   }
 }
 
 export default Template;
+
+

@@ -47,14 +47,6 @@ class University extends Component {
 
       <input 
       type="text" 
-      name="sub" 
-      value={uniItem.sub} 
-      onChange={(e) => onChange(e, id)} 
-      placeholder="Subject">
-      </input>
-
-      <input 
-      type="text" 
       name="from" 
       value={uniItem.from} 
       onChange={(e) => onChange(e, id)} 

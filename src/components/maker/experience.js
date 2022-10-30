@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-
 class Experience extends Component {
   render() {
-  const {id, expItem, onCompChange, handleCompDelete} = this.props;
+  const {id, expItem, onCompChange, handleCompDelete, onWorkChange} = this.props;
+
   return(
     <div className='professionalInp'>
         <input 
@@ -19,6 +19,14 @@ class Experience extends Component {
         onChange={(e) => onCompChange(e, id)} 
         placeholder="Company"></input>
 
+        <input 
+        type="text" 
+        name="works" 
+        value={expItem.works} 
+        onChange={(e) => onCompChange(e, id)} 
+        placeholder="Works"></input>
+
+        
         <input 
         type="text" 
         name="city" 

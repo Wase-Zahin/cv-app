@@ -10,15 +10,13 @@ class TemplateItem extends Component {
     render() {
         const {university, experience, personalInfo, skills, interests, projects} = this.props;
         return (
-            <div>
-                <div id="template">
+            <div id="templateItem">
                 <PersonalInfo personalInfo={personalInfo}></PersonalInfo>
                 <University university={university}></University>
                 <Skills skills={skills}></Skills>
                 <Experience experience={experience}></Experience>
                 <Projects projects={projects}></Projects>
                 <Interests interests={interests}></Interests>
-                </div>
             </div>
         )
     }
