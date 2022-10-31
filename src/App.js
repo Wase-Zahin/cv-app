@@ -366,9 +366,8 @@ class App extends Component {
         </header>
 
         <nav className="nav">
-          <a onClick={this.onClickMaker}>Maker</a>
-          <div className='vl'></div>
-          <a onClick={this.onClickTemplate}>Preview</a>
+          <button type='button' onClick={this.onClickMaker}>Maker</button>
+          <button type='button' onClick={this.onClickTemplate}>Preview</button>
         </nav>
 
         <div>

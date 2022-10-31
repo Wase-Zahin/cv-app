@@ -74,22 +74,19 @@ p {
 
 
 .nav {
-  display: flex;
   height: fit-content;
   width: fit-content;
   margin: auto;
-  background-color: black;
   border-radius: 0.5rem;
-
 }
 
-.nav a {
+.nav button {
   background-color: white;
   cursor: pointer;
   padding: 0.5rem;
 }
 
-.nav a:hover {
+.nav button:hover {
   filter: brightness(90%);
 }
 

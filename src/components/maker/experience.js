@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 class Experience extends Component {
   render() {
-  const {id, expItem, onCompChange, handleCompDelete, onWorkChange} = this.props;
+  const {id, expItem, onCompChange, handleCompDelete} = this.props;
 
   return(
     <div className='professionalInp'>

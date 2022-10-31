@@ -8,7 +8,7 @@ import Interests from "./interests";
 class Maker extends Component {
     render() {
     const {addUniFn, university, onChange, onCompChange, onSubmitForm, 
-          onSkillsChange, projects, handlePersonalInfoChange, onWorkChange,
+          onSkillsChange, projects, handlePersonalInfoChange,
           personalInfo, experience, addCompFn, skills, addSkillsFn,
           addProjectsFn, onProjectsChange, onInterestsChange, 
           addInterestsFn, interests, handleUniDelete, handleCompDelete,
