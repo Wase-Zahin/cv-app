@@ -147,9 +147,10 @@ p {
   margin: 1rem 0;
 }
 
-.courses li {
-  margin-left: 1.5rem;
-  text-indent: -1.5rem;
+@-moz-document url-prefix() {
+  .courses li, .skillsDiv li, .companyWorks li, .projectWorks li, .interestNames li {
+    margin-left: 1rem;
+  }
 }
 
 .interestNames {
@@ -165,11 +166,6 @@ p {
 .companyWorks {
   margin-top: 0;
   margin-bottom: 1rem;
-}
-
-.companyWorks li {
-  margin-left: 1rem;
-  text-indent: -1.5rem;
 }
 
 .university,
