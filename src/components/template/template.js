@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactToPrint from 'react-to-print';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 import TemplateItem from './templateItem';
 class Template extends React.PureComponent {
   render() {
@@ -15,12 +15,12 @@ class Template extends React.PureComponent {
         interests={interests}
         projects={projects}
         ref={el => (this.componentRef = el)} />
-        <ReactToPrint 
+        <PDFDownloadLink  
           trigger={() => {
             return <button type="button" className="addBtn">Generate PDF</button>;
           }}
           content={() => this.componentRef}
-        />
+        ></PDFDownloadLink>
         <button type="button" className="delBtn" onClick={reset}>Reset</button>
       </div>
     );
